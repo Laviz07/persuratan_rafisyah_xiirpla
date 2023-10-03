@@ -55,9 +55,6 @@ class JenisSuratController extends Controller
                 $jenisSurat->fill($data);
                 $jenisSurat->save();
 
-                // return response()->json([
-                //     'message' => 'Jenis Surat berhasil diupdate!'
-                // ], 200);
                 if ($jenisSurat) {
                     return redirect('/jenis_surat')
                         ->with('success', 'Jenis Surat berhasil diupdate!');

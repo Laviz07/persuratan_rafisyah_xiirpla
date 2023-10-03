@@ -2,9 +2,9 @@
 @section('title', 'Tambah User')
 
 @section('content')
-<div class="container mt-4">
+<div class="container mt-4 mb-4">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12   ">
             <div class="card ">
                 <div class="card-header">
                     <span class="h1"> Tambah User</span>
@@ -13,7 +13,7 @@
                     <form action="tambah" method="POST">
                         @csrf
                         <div class="row">
-                            <div class="col-md-5">
+                            <div class="col-md-15">
                                 <div class="form-group">
                                     <label >Username</label>
                                     <input type="text" class="form-control" name="username">

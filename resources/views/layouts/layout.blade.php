@@ -92,7 +92,7 @@
             <div class="navbar-nav">
                 <a href="/" class="nav-item nav-link active">Dashboard</a>
                 <a href="{{url('user')}}" class="nav-item nav-link">Manajemen User</a>
-                <a href="#" class="nav-item nav-link">Manajemen Surat</a>
+                <a href="{{url('surat')}}" class="nav-item nav-link">Manajemen Surat</a>
                 <a href="{{ url('jenis_surat')}}" class="nav-item nav-link">Manajemen Jenis Surat</a>
                 <a href="#" class="nav-item nav-link">Logs</a>
             </div>

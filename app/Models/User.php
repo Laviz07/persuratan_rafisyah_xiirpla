@@ -13,7 +13,7 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $table = 'user';
-    protected $primaryKey = 'id_user';
+    protected $primaryKey = 'id';
 
     /**
      * The attributes that are mass assignable.
@@ -41,4 +41,9 @@ class User extends Authenticatable
      *
      * @var array<string, string>
      */
+
+    public function surat()
+    {
+        return $this->hasMany(Surat::class, 'id_user');
+    }
 }

@@ -41,7 +41,8 @@
                         <h3 class="login-heading mb-4 ">Welcome To Nyurat!</h3>
                     </div>
                     <!-- Sign In Form -->
-                    <form  action="">
+                    <form  action="login" method="POST">
+                      @csrf
                       <div class="form-floating mb-3">
                         <input type="text" class="form-control" id="username" 
                                 placeholder="Your Username" name="username" required>
@@ -67,7 +68,7 @@
         </div>
       </div>
       
-   <script type="module" >
+   {{-- <script type="module" >
         $('form').submit(async function (e) {
                     e.preventDefault();
                     let username = $('#username').val();
@@ -97,7 +98,7 @@
                     })
 
                 })
-   </script>
+   </script> --}}
              
 </body>
 

@@ -15,24 +15,27 @@ class AuthController extends Controller
             return view('auth.login');
         }
 
-        return redirect()->to('/dashboard');
+        return redirect()->to('/login');
     }
 
-    public function check(Request $request)
+    public function login(Request $request)
     {
-        $data = $request->validate();
+        $data = $request->validate([
+            'username' => ['required'],
+            'password' => ['required']
+        ]);
 
         if (Auth::attempt($data)) {
             $request->session()->regenerate();
-            return Auth::user();
 
-            return response()->json([
-                'errors' => [
-                    'message' => 'Username or password wrong !'
-                ]
-            ], 401);
+            if (Auth::user()->role == 'admin') :
+                return redirect()->to('/dashboard');
+            else :
+                return redirect()->to('/dashboard');
+            endif;
         }
     }
+
 
     public function logout()
     {

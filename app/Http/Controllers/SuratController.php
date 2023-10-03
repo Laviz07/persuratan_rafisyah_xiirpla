@@ -79,9 +79,24 @@ class SuratController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Surat $surat)
+    public function delete(Surat $surat, Request $request)
     {
         //
+        $surat = Surat::query()->find($request['id'])->delete();
+        if ($surat) :
+            //Pesan Berhasil
+            $pesan = [
+                'success'   => true,
+                'pesan'     => ' Surat berhasil dihapus'
+            ];
+        else :
+            //Pesan Gagal
+            $pesan = [
+                'success' => false,
+                'pesan'     => ' Surat gagal dihapus'
+            ];
+        endif;
+        return response()->json($pesan);
     }
 
     /**

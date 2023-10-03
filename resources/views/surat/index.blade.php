@@ -89,7 +89,7 @@
             }).then((result)=>{
                 if(result.isConfirmed){
                     //dilakukan proses hapus
-                    axios.delete('user/hapus/'+idSrt).then(function(response){
+                    axios.delete('surat/hapus/'+idSrt).then(function(response){
                         console.log(response);
                         if(response.data.success){
                             swal.fire('Berhasil di hapus!', '', 'success').then(function(){

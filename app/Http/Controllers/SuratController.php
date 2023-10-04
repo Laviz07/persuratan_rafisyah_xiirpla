@@ -7,6 +7,7 @@ use App\Models\JenisSurat;
 use App\Models\Surat;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SuratController extends Controller
 {
@@ -36,6 +37,18 @@ class SuratController extends Controller
         return view('surat.tambah', $data);
     }
 
+    public function indexEdit(Request $request)
+    {
+        //
+        $data = [
+            'surat' => Surat::where('id', $request->id)->first(),
+            'jenis_surat' => JenisSurat::all(),
+            'user' => User::all()
+        ];
+
+        return view('surat.edit', $data);
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -58,13 +71,34 @@ class SuratController extends Controller
         }
 
         $dataInsert = Surat::query()->create($data);
-        if ($dataInsert) {
-            return redirect('/surat')
-                ->with('success', ' Surat baru berhasil ditambahkan!');
-        } else {
+        if (!$dataInsert) {
             return redirect('/surat')
                 ->with('error', ' Surat baru gagal ditambahkan!');
         }
+
+        return redirect('/surat')
+            ->with('success', ' Surat baru berhasil ditambahkan!');
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(int $id, Request $request)
+    {
+        $data = $request->validate([
+            'id_jenis_surat' => ['required'],
+            'tanggal_surat' => ['required'],
+            'ringkasan' => ['nullable'],
+            'id_user' => ['required'],
+            'file' => ['nullable', 'mimes:pdf']
+        ]);
+
+        $surat = Surat::query()->find($id);
+        $surat->fill($data);
+        $surat->save();
+
+        return redirect('/surat')
+            ->with('success', 'Surat berhasil diupdate!');
     }
 
     /**
@@ -82,7 +116,11 @@ class SuratController extends Controller
     public function delete(Surat $surat, Request $request)
     {
         //
-        $surat = Surat::query()->find($request['id'])->delete();
+        $surat = Surat::query()->find($request['id']);
+
+        Storage::delete("public/$surat->file");
+        $surat->delete();
+
         if ($surat) :
             //Pesan Berhasil
             $pesan = [
@@ -99,13 +137,7 @@ class SuratController extends Controller
         return response()->json($pesan);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Surat $surat)
-    {
-        //
-    }
+
 
     /**
      * Update the specified resource in storage.

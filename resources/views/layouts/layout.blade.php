@@ -90,7 +90,7 @@
         <!-- Collection of nav links, forms, and other content for toggling -->
         <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
             <div class="navbar-nav">
-                <a href="/" class="nav-item nav-link active">Dashboard</a>
+                <a href="/dashboard" class="nav-item nav-link active">Dashboard</a>
                 <a href="{{url('user')}}" class="nav-item nav-link">Manajemen User</a>
                 <a href="{{url('surat')}}" class="nav-item nav-link">Manajemen Surat</a>
                 <a href="{{ url('jenis_surat')}}" class="nav-item nav-link">Manajemen Jenis Surat</a>

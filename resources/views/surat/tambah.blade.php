@@ -10,7 +10,7 @@
                     <span class="h1"> Tambah Surat</span>
                 </div>
                 <div class="card-body">
-                    <form action="tambah" method="POST">
+                    <form action="tambah" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="">

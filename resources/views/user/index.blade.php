@@ -40,11 +40,11 @@
                         <tr idUS="{{$us->id}}" >
                             <td class="col-1" style=" width: 50px; text-align:center;">{{$no++}}</td>
                             <td class="col-6">{{$us->username}}</td>
-                            <td class="col-4">{{$us->role}}</td>
+                            <td class="col-3">{{$us->role}}</td>
                             <td class="col text-center ">
-                                {{-- <a href="/user/edit/{{$us->id}}" class="text-decoration-none">
+                                <a href="/user/edit/{{$us->id}}" class="text-decoration-none">
                                     <btn class="btn btn-primary">Edit</btn>
-                                </a> --}}
+                                </a>
 
                                 <btn class="hapusBtn btn btn-danger" idUser="{{$us->id}}">Hapus</btn>
                             </td>

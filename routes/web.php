@@ -18,9 +18,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return redirect('/login');
-// });
+Route::get('/', function () {
+    return redirect('/login');
+});
 
 Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
@@ -53,4 +53,7 @@ Route::delete('/jenis_surat/hapus/{id}', [JenisSuratController::class, 'delete']
 Route::get('/surat', [SuratController::class, 'index']);
 Route::get('/surat/tambah', [SuratController::class, 'indexCreate']);
 Route::post('/surat/tambah', [SuratController::class, 'create']);
+Route::get('/surat/download', [SuratController::class, 'download']);
 Route::delete('/surat/hapus/{id}', [SuratController::class, 'delete']);
+Route::get('/surat/edit/{id}', [SuratController::class, 'indexEdit']);
+Route::post('/surat/edit/{id}', [SuratController::class, 'edit']);

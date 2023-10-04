@@ -10,7 +10,7 @@
                     <span class="h1"> Edit User</span>
                 </div>
                 <div class="card-body">
-                    <form action="/user/edit" method="POST">
+                    <form action="/user/edit/{{ $user->id }}" method="POST">
                     @csrf
                         <div class="row">
                             <div class="col-md-5">
@@ -22,11 +22,11 @@
                                     <input type="hidden" name="id" value="{{$user->id}}">
                                 </div>
 
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label >password</label>
                                     <input type="text" class="form-control" 
                                         name="password" value="{{$user->password}}">
-                                </div>
+                                </div> --}}
 
                                 <div class="form-group">
                                     <label >Role</label>

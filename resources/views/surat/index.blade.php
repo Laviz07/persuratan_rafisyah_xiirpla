@@ -46,10 +46,10 @@
                             <td class="col-2">{{$srt->jenis->jenis_surat}}</td>
                             <td class="col-2">{{$srt->user->username}}</td> 
                             <td class="col-2">{{$srt->tanggal_surat}}</td>
-                            <td class="col-2">
+                            <td class="col-1">
                               <div class="row mx-2 align-items-center">
                                   @if ($srt->file)
-                                      <a href="{{ url("surat?path=$surat->file", ["download"]) }}"
+                                      <a href="{{ url("surat?path=$srt->file", ["download"]) }}"
                                           class="btn btn-primary">Download</a>
                                   @else
                                       <p class="text-center m-0 p-0">No File</p>

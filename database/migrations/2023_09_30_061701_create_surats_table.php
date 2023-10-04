@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_user')->nullable(false);
             $table->unsignedBigInteger('id_jenis_surat')->nullable(false);
             $table->date('tanggal_surat')->default('2023-01-01')->nullable(false);
-            $table->text('file')->nullable(true);
+            $table->string('file')->nullable(true);
             $table->text('ringkasan')->nullable(true);
 
             $table->foreign('id_user')->on('user')->references('id');

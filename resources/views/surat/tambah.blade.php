@@ -10,7 +10,7 @@
                     <span class="h1"> Tambah Surat</span>
                 </div>
                 <div class="card-body">
-                    <form action="tambah" method="POST" enctype="multipart/form-data">
+                    <form action="{{ url('dashboard', ['surat', 'tambah'])}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="">
@@ -29,14 +29,16 @@
                                     </select>
                                 </div>
 
-                                <div class="form-group mt-2">
+                                {{-- <div class="form-group mt-2">
                                     <label >User</label>
                                      <select name="id_user" class="form-select mb-3">
                                         @foreach($user as $us)
                                             <option selected value="{{$us->id}}">{{$us->username}}</option>
                                         @endforeach
                                     </select>
-                                </div>
+                                </div> --}}
+
+                                <input type="hidden" name="id_user" value="{{Auth::user()["id"]}}">
                                
                                 <div class="form-group">
                                     <label >Ringkasan Surat</label>

@@ -1,0 +1,23 @@
+.l-container{
+    margin-left: -10px;
+}
+
+.bg-red-g{
+    background: linear-gradient(45deg, #ff4d4d 42%,#ff7f7f 100%);
+}
+
+.bg-green-g{
+    background: linear-gradient(45deg, rgba(0,252,122,1) 42%, rgba(127,255,165,1) 100%);
+}
+
+.bg-blue-g{
+    background: linear-gradient(45deg,#4099ff,#73b4ff);
+}
+
+.bg-yellow-g{
+    background: linear-gradient(45deg, rgba(248,208,27,1) 42%, rgba(197,255,57,1) 100%);
+}
+
+.f-right{
+    float: right;
+}

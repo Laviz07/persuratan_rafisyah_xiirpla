@@ -10,7 +10,7 @@
                     <span class="h1"> Tambah User</span>
                 </div>
                 <div class="card-body">
-                    <form action="tambah" method="POST">
+                    <form action="{{ url('dashboard', ['user', 'tambah'])}}" method="POST">
                         @csrf
                         <div class="row">
                             <div class="col-md-15">
@@ -19,6 +19,7 @@
                                     <input type="text" class="form-control" name="username">
                                     
                                 </div>
+                                
                                 <div class="form-group mt-2">
                                     <label >Password</label>
                                     <input type="text" class="form-control" name="password">

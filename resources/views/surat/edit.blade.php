@@ -10,7 +10,7 @@
                     <span class="h1"> Edit Surat</span>
                 </div>
                 <div class="card-body">
-                    <form action="/surat/edit/{{ $surat->id }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{url("dashboard", ["surat", "edit", $surat->id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                         <div class="row">
                             <div class="col-md-12">
@@ -19,12 +19,15 @@
                                     <label for="tanggal_surat">Tanggal Surat</label>
                                     <input type="datetime-local" class="form-control" 
                                         name="tanggal_surat" value="{{ $surat->tanggal_surat }}">
-                                    <input type="hidden" name="id" value="{{$user->id}}">
                                 </div>
+                                
+                                @auth
+                                    <input type="hidden" name="id_user" value="{{Auth::user()["id"]}}">
+                                @endauth
 
                                 <div class="form-group">
                                     <label for="jenis_surat">Jenis Surat</label>
-                                    <select name="jenis_surat" class="form-select mb-3">
+                                    <select name="id_jenis_surat" class="form-select mb-3">
                                         @foreach($jenis_surat as $js)
                                             <option value="{{ $js->id }}" {{ $js->id === $surat->id_jenis_surat ? 'selected' : '' }}>
                                                 {{ $js->jenis_surat }}

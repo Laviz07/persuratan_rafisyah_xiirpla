@@ -3,27 +3,27 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
-    private $name = 'logger';
+    private $spName = 'Logger';
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        //
         DB::unprepared(
-            "CREATE PROCEDURE $this->name
+            "CREATE PROCEDURE $this->spName
             (
-             Username varchar(100),
-             Action enum('INSERT','UPDATE','DELETE'),
-             log TEXT  
+                Username VARCHAR(100),
+                Action ENUM('INSERT', 'UPDATE', 'DELETE'),
+                Log TEXT
             )
             MODIFIES SQL DATA
             BEGIN
-                INSERT INTO logs (username, Action, log)
-                VALUES (username, Action, log);
+                INSERT INTO logs (username, action, log)
+                VALUES (Username, Action, Log);
             END;"
         );
     }
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        DB::unprepared("DROP PROCEDURE IF EXISTS $this->spName");
     }
 };

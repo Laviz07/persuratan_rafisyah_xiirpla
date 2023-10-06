@@ -10,7 +10,7 @@
                     <span class="h1"> Tambah Jenis Surat</span>
                 </div>
                 <div class="card-body">
-                    <form action="simpan" method="POST">
+                    <form action="{{url("dashboard", ["jenis_surat", "tambah"])}}" method="POST">
                     
                         <div class="row">
                             <div class="col-md-12">

@@ -56,20 +56,20 @@ class JenisSuratController extends Controller
                 $jenisSurat->save();
 
                 if ($jenisSurat) {
-                    return redirect('/jenis_surat')
+                    return redirect('/dashboard/jenis_surat')
                         ->with('success', 'Jenis Surat berhasil diupdate!');
                 } else {
-                    return redirect('/jenis_surat')
+                    return redirect('/dashboard/jenis_surat')
                         ->with('success', 'Jenis Surat gagal diupdate!');
                 }
             }
 
             $dataInsert = JenisSurat::create($data);
             if ($dataInsert) {
-                return redirect('/jenis_surat')
+                return redirect('/dashboard/jenis_surat')
                     ->with('success', 'Jenis Surat baru berhasil ditambahkan!');
             } else {
-                return redirect('/jenis_surat')
+                return redirect('/dashboard/jenis_surat')
                     ->with('error', 'Jenis Surat baru gagal ditambahkan!');
             }
         }

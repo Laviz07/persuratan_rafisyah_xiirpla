@@ -10,7 +10,7 @@
                     <span class="h1"> Edit Jenis Surat</span>
                 </div>
                 <div class="card-body">
-                    <form action="/jenis_surat/simpan" method="POST">
+                    <form action="{{url("dashboard", ["jenis_surat", "edit", $jenis_surat->id])}}" method="POST">
                     
                         <div class="row">
                             <div class="col-md-5">

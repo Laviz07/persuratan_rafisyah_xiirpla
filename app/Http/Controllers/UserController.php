@@ -58,7 +58,7 @@ class UserController extends Controller
         $user->password = Hash::make($data['password']);
         $user->save();
 
-        return redirect('/user')
+        return redirect('/dashboard/user')
             ->with('success', 'User baru berhasil ditambahkan!');
     }
 
@@ -74,7 +74,7 @@ class UserController extends Controller
         $user->fill($data);
         $user->save();
 
-        return redirect('/user')
+        return redirect('/dashboard/user')
             ->with('success', 'User baru berhasil diupdate!');
     }
 

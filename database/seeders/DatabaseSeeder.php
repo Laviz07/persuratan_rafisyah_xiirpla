@@ -23,6 +23,6 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         User::factory()->count(5)->create();
-        JenisSurat::factory()->count(5)->create();
+        // JenisSurat::factory()->count(5)->create();
     }
 }

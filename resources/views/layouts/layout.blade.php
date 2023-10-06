@@ -8,6 +8,8 @@
      <!-- CSRF Token -->
 
      <meta name="csrf-token" content="{{ csrf_token() }}">
+     <link rel="stylesheet" href="{{asset('css/style.css')}}" type="text/css">
+     <link rel="icon" href="{{asset('mail-logo.png')}}">
 
     <title>@yield('title')</title>
 
@@ -91,10 +93,13 @@
         <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
             <div class="navbar-nav">
                 <a href="/dashboard" class="nav-item nav-link active">Dashboard</a>
-                <a href="{{url('user')}}" class="nav-item nav-link">Manajemen User</a>
-                <a href="{{url('surat')}}" class="nav-item nav-link">Manajemen Surat</a>
-                <a href="{{ url('jenis_surat')}}" class="nav-item nav-link">Manajemen Jenis Surat</a>
-                <a href="#" class="nav-item nav-link">Logs</a>
+
+                @if(Auth::user()["role"]==="admin")
+                    <a href="{{url('dashboard', ['user'])}}" class="nav-item nav-link">Manajemen User</a>
+                    <a href="{{ url('dashboard', ['jenis_surat'])}}" class="nav-item nav-link">Manajemen Jenis Surat</a>
+                @endif
+                <a href="{{url('dashboard', ['surat'])}}" class="nav-item nav-link">Manajemen Surat</a>
+                <a href="{{url('dashboard', ['logs'])}}" class="nav-item nav-link">Logs</a>
             </div>
         
             <div class="navbar-nav navbar-collapse justify-content-end">
@@ -102,14 +107,14 @@
                     <li class="nav-item mx-4 d-flex align-items-center">
                         <h1 class="m-auto mx-2"><i class="bi bi-person-circle"></i></h1>
                         <div>
-                            {{-- <p class="mb-0 fs-5">{{Auth::user()->username}}</p>
-                            <p class="text-capitalize m-0 text-secondary">{{Auth::user()->role}}</p> --}}
-                            <p class="mb-0 fs-5">Username</p>
-                            <p class="text-capitalize m-0  text-secondary">Role</p>
+                            <p class="mb-0 fs-5">{{Auth::user()->username}}</p>
+                            <p class="text-capitalize m-0 text-secondary">{{Auth::user()->role}}</p>
+                            {{-- <p class="mb-0 fs-5">Username</p>
+                            <p class="text-capitalize m-0  text-secondary">Role</p> --}}
                         </div>
                     </li>
                     <li>
-                        <a href="#" class="btn logout btn-danger ">Logout</a>
+                        <a href="/logout" class="btn logout btn-danger ">Logout</a>
                     </li>
                 </div>
             </div>

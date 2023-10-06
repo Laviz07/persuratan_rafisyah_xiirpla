@@ -15,7 +15,7 @@
                         <btn class="btn btn-primary">Kembali</btn>
                     </a>
 
-                    <a href="{{ url('jenis_surat/tambah')}}" class="justify-content-end">
+                    <a href="{{ url('dashboard', ['jenis_surat', 'tambah'])}}" class="justify-content-end">
                         <btn class="btn btn-success">Tambah </btn>
                     </a>
                 </div>
@@ -40,7 +40,7 @@
                             <td class="col-1" style=" width: 50px; text-align:center;">{{$no++}}</td>
                             <td class="col-9">{{$js->jenis_surat}}</td>
                             <td class="col text-center ">
-                                <a href="/jenis_surat/edit/{{$js->id}}" class="text-decoration-none">
+                                <a href="/dashboard/jenis_surat/edit/{{$js->id}}" class="text-decoration-none">
                                     <btn class="btn btn-primary">Edit</btn>
                                 </a>
 
@@ -71,7 +71,7 @@
             }).then((result)=>{
                 if(result.isConfirmed){
                     //dilakukan proses hapus
-                    axios.delete('jenis_surat/hapus/'+idJS).then(function(response){
+                    axios.delete('/dashboard/jenis_surat/hapus/'+idJS).then(function(response){
                         console.log(response);
                         if(response.data.success){
                             swal.fire('Berhasil di hapus!', '', 'success').then(function(){

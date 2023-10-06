@@ -14,8 +14,7 @@
         }
 
         .login-heading {
-        font-weight: 300;
-        }
+        font-weight: 300;        }
 
         .btn-login {
         font-size: 0.9rem;
@@ -38,9 +37,9 @@
                     <div class="text-center">
                         <img src="https://cdn.icon-icons.com/icons2/3566/PNG/512/mail_email_logo_icon_225397.png"
                         class="img-fluid profile-image-pic my-2" width="60px" alt="profile">
-                        <h3 class="login-heading mb-4 ">Welcome To Nyurat!</h3>
+                        <h3 class="login-heading mb-4 "> Welcome To Nyurat!</h3>
                     </div>
-                    <!-- Sign In Form -->
+                    <!-- Login Form -->
                     <form  action="login" method="POST">
                       @csrf
                       <div class="form-floating mb-3">
@@ -68,7 +67,7 @@
         </div>
       </div>
       
-   {{-- <script type="module" >
+   <script type="module" >
         $('form').submit(async function (e) {
                     e.preventDefault();
                     let username = $('#username').val();
@@ -89,7 +88,7 @@
                             timer: 1000,
                             showConfirmButton: false
                         })
-                        window.location = '/'
+                        window.location = '/dashboard'  
                         console.log('success')
                     }).catch(({response}) => {
                         if (!$('.err-message').text()) {
@@ -98,7 +97,7 @@
                     })
 
                 })
-   </script> --}}
+   </script>
              
 </body>
 

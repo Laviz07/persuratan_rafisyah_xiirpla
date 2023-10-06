@@ -15,7 +15,7 @@
                         <btn class="btn btn-primary">Kembali</btn>
                     </a>
 
-                    <a href="{{ url('surat/tambah')}}" class="justify-content-end">
+                    <a href="{{ url('dashboard', ['surat', 'tambah'])}}" class="justify-content-end">
                         <btn class="btn btn-success">Tambah </btn>
                     </a>
                 </div>
@@ -57,9 +57,9 @@
                               </div>
                           </td>
                             <td class="col text-center ">
-                                {{-- <a href="/surat/edit/{{$srt->id}}" class="text-decoration-none">
+                                <a href="{{url('dashboard', ['surat', 'edit', $srt->id])}}" class="text-decoration-none">
                                     <btn class="btn btn-primary">Edit</btn>
-                                </a> --}}
+                                </a>
 
                                 <btn class="hapusBtn btn btn-danger" idSrt="{{$srt->id}}">Hapus</btn>
                             </td>

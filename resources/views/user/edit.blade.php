@@ -10,7 +10,7 @@
                     <span class="h1"> Edit User</span>
                 </div>
                 <div class="card-body">
-                    <form action="/user/edit/{{ $user->id }}" method="POST">
+                    <form action="{{url("dashboard", ['user', 'edit', $user->id] )}}" method="POST">
                     @csrf
                         <div class="row">
                             <div class="col-md-5">

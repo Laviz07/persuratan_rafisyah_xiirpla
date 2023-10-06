@@ -72,18 +72,18 @@ class SuratController extends Controller
 
         $dataInsert = Surat::query()->create($data);
         if (!$dataInsert) {
-            return redirect('/surat')
+            return redirect('/dashboard/surat')
                 ->with('error', ' Surat baru gagal ditambahkan!');
         }
 
-        return redirect('/surat')
+        return redirect('/dashboard/surat')
             ->with('success', ' Surat baru berhasil ditambahkan!');
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(int $id, Request $request)
+    public function edit(Request $request)
     {
         $data = $request->validate([
             'id_jenis_surat' => ['required'],
@@ -93,11 +93,23 @@ class SuratController extends Controller
             'file' => ['nullable', 'mimes:pdf']
         ]);
 
-        $surat = Surat::query()->find($id);
-        $surat->fill($data);
-        $surat->save();
+        $surat = Surat::query()->find($request->id);
 
-        return redirect('/surat')
+
+        if ($path = $request->file('file')) {
+            // Delete old file
+            if ($surat->file) {
+                Storage::delete("public/$surat->file");
+            }
+
+            // Store new file
+            $path = $path->storePublicly('', 'public');
+            $data['file'] = $path;
+        }
+
+        $surat->update($data);
+
+        return redirect('/dashboard/surat')
             ->with('success', 'Surat berhasil diupdate!');
     }
 

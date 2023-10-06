@@ -15,7 +15,7 @@
                         <btn class="btn btn-primary">Kembali</btn>
                     </a>
 
-                    <a href="{{ url('user/tambah')}}" class="justify-content-end">
+                    <a href="{{ url('dashboard', ['user', 'tambah'])}}" class="justify-content-end">
                         <btn class="btn btn-success">Tambah </btn>
                     </a>
                 </div>
@@ -42,7 +42,7 @@
                             <td class="col-6">{{$us->username}}</td>
                             <td class="col-3">{{$us->role}}</td>
                             <td class="col text-center ">
-                                <a href="/user/edit/{{$us->id}}" class="text-decoration-none">
+                                <a href="{{url('dashboard', ['user', 'edit', $us->id])}}" class="text-decoration-none">
                                     <btn class="btn btn-primary">Edit</btn>
                                 </a>
 
@@ -74,7 +74,7 @@
             }).then((result)=>{
                 if(result.isConfirmed){
                     //dilakukan proses hapus
-                    axios.delete('user/hapus/'+idUser).then(function(response){
+                    axios.delete('/dashboard/user/hapus/'+idUser).then(function(response){
                         console.log(response);
                         if(response.data.success){
                             swal.fire('Berhasil di hapus!', '', 'success').then(function(){

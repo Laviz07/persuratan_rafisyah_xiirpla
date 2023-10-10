@@ -15,7 +15,7 @@ class UserChart
         $this->chart = $chart;
     }
 
-    public function build(): \ArielMejiaDev\LarapexCharts\PieChart
+    public function build(): \ArielMejiaDev\LarapexCharts\DonutChart
     {
         $surats = Surat::all();
         $user = User::all();
@@ -25,8 +25,8 @@ class UserChart
         });
 
         $labels = $user->pluck('username')->toArray();
-        return $this->chart->pieChart()
-            ->setTitle('User Teraktif')
+        return $this->chart->donutChart()
+            ->setTitle('User Paling Aktif')
             ->setSubtitle(date('Y'))
             ->addData($data->toArray())
             ->setHeight(300)

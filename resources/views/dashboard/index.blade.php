@@ -7,20 +7,27 @@
 
         <div class="row">
           <div class="col-md-12">
-          <div class="card rounded-lg  ">
+          <div 
+            class="card rounded-lg" 
+            style="background-color: #8EC5FC;
+            background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+            
+          ">
             <div class="card-body text-center col ">
               <h5 
-                style="font-family: 'Merienda One', sans-serif; font-size: 16px" 
+                style="font-family: 'Merienda One', sans-serif; font-size: 16px;  " 
                 class="mt-3"
                 >
                 <b>Selamat datang <i> {{Auth::user()->username}}</i>! Di</b>
               </h5>
-              <img src="https://cdn.icon-icons.com/icons2/3566/PNG/512/mail_email_logo_icon_225397.png"
-                 alt="nyurat logo" class="img-fluid profile-image-pic my-2" width="90px">
-              <span style="font-size: 50px; font-family: 'Merienda One', sans-serif; vertical-align: middle">
-                <b>NYURAT </b>
-              </span>
-            </div>
+                {{-- <div class="d-flex flex-column align-items-center">  --}}
+                  <img src="https://cdn.icon-icons.com/icons2/3566/PNG/512/mail_email_logo_icon_225397.png"
+                    alt="nyurat logo" class="img-fluid   profile-image-pic my-2" width="90px">
+                  <span style="font-size: 50px; font-family: 'Merienda One', sans-serif; vertical-align: middle; ">
+                    <b>NYUUAAAK~~ </b>
+                  </span>
+                {{-- </div> --}}
+              </div>
           </div>
         </div>
       </div>

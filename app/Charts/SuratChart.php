@@ -14,7 +14,7 @@ class SuratChart
         $this->chart = $chart;
     }
 
-    public function build(): \ArielMejiaDev\LarapexCharts\BarChart
+    public function build(): \ArielMejiaDev\LarapexCharts\AreaChart
     {
 
         $surats = Surat::all();
@@ -44,7 +44,7 @@ class SuratChart
             $data[] = $suratsInMonth->count();
         };
 
-        return $this->chart->barChart()
+        return $this->chart->areaChart()
             ->setTitle('Monthly Data Surat ')
             ->setSubtitle(date('Y'))
             ->setXAxis($months)
